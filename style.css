@@ -1169,20 +1169,14 @@ ul, ol {
 }
 
 .footer-brand-logo {
-  height: 80px; /* Tamanho base (mobile) */
+  height: 64px; /* Tamanho base (mobile) */
   width: auto;
   display: block;
 }
 
 @media (min-width: 768px) {
   .footer-brand-logo {
-    height: 120px; /* Tamanho tablet/desktop */
-  }
-}
-
-@media (min-width: 1200px) {
-  .footer-brand-logo {
-    height: 180px; /* Monitores grandes */
+    height: 100px; /* Tamanho desktop */
   }
 }
 
