@@ -223,14 +223,20 @@ ul, ol {
 }
 
 .brand-logo {
-  height: 48px; /* Tamanho base (mobile) */
+  height: 56px; /* Tamanho base (mobile) */
   width: auto;
   display: block;
 }
 
 @media (min-width: 768px) {
   .brand-logo {
-    height: 60px; /* Tamanho desktop */
+    height: 80px; /* Tamanho tablet/desktop */
+  }
+}
+
+@media (min-width: 1200px) {
+  .brand-logo {
+    height: 110px; /* Monitores grandes */
   }
 }
 
@@ -1163,14 +1169,20 @@ ul, ol {
 }
 
 .footer-brand-logo {
-  height: 64px; /* Tamanho base (mobile) */
+  height: 80px; /* Tamanho base (mobile) */
   width: auto;
   display: block;
 }
 
 @media (min-width: 768px) {
   .footer-brand-logo {
-    height: 96px; /* Tamanho desktop */
+    height: 120px; /* Tamanho tablet/desktop */
+  }
+}
+
+@media (min-width: 1200px) {
+  .footer-brand-logo {
+    height: 180px; /* Monitores grandes */
   }
 }
 
