@@ -501,13 +501,13 @@ ul, ol {
 
 .marquee-content {
   display: inline-block;
-  font-family: var(--font-label);
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.2em;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  font-weight: 900;
   text-transform: uppercase;
-  color: var(--color-on-surface-variant);
+  color: var(--color-on-surface);
   padding-right: 2rem;
   white-space: nowrap;
 }
