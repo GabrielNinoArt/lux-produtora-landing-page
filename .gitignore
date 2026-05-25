@@ -1,0 +1,8 @@
+# Arquivos de sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Backups do código original (não precisam ir pro GitHub)
+LP 01.txt
+LPProdutora.txt
