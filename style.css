@@ -532,6 +532,12 @@ ul, ol {
   }
 }
 
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* Bento Card Geometry */
 .bento-card {
   position: relative;
@@ -543,6 +549,13 @@ ul, ol {
   min-height: 320px;
   cursor: pointer;
   transform: translateZ(0); /* Hardware acceleration */
+}
+
+@media (min-width: 1024px) {
+  .bento-card:nth-child(1) { grid-column: span 2; }
+  .bento-card:nth-child(2) { grid-column: span 1; }
+  .bento-card:nth-child(3) { grid-column: span 1; }
+  .bento-card:nth-child(4) { grid-column: span 2; }
 }
 
 /* Backgrounds & Liquid Glass */
@@ -1170,6 +1183,10 @@ ul, ol {
 .fade-in-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
 .fade-in-stagger.is-visible > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
 .fade-in-stagger.is-visible > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+.fade-in-stagger.is-visible > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+.fade-in-stagger.is-visible > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+.fade-in-stagger.is-visible > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: translateY(0); }
+.fade-in-stagger.is-visible > *:nth-child(n+7) { transition-delay: 0.65s; opacity: 1; transform: translateY(0); }
 
 /* ---------- Responsive fine-tuning ---------- */
 
