@@ -647,110 +647,333 @@ ul, ol {
   max-width: 280px;
 }
 
-/* ---------- WhatsApp CTA Section ---------- */
-.cta-section {
+/* ---------- CTA Block (Premium Redesign) ---------- */
+.cta-block {
+  position: relative;
+  padding: var(--section-padding) 0;
+  overflow: hidden;
+  background: linear-gradient(
+    170deg,
+    var(--color-bg) 0%,
+    #0a0a2e 40%,
+    #0d0d35 60%,
+    var(--color-bg) 100%
+  );
+  border-top: 1px solid rgba(93, 92, 255, 0.15);
+  border-bottom: 1px solid rgba(93, 92, 255, 0.08);
+}
+
+/* Floating ambient glow orbs */
+.cta-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.cta-glow-orb--1 {
+  width: 500px;
+  height: 500px;
+  background: var(--color-accent);
+  top: -150px;
+  right: -100px;
+  animation: glow-drift 8s ease-in-out infinite alternate;
+}
+
+.cta-glow-orb--2 {
+  width: 350px;
+  height: 350px;
+  background: #8b5cf6;
+  bottom: -100px;
+  left: -80px;
+  animation: glow-drift 10s ease-in-out 2s infinite alternate-reverse;
+}
+
+@keyframes glow-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, -20px) scale(1.15); }
+}
+
+.cta-block-inner {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .cta-section {
-    text-align: left;
-  }
-}
-
-.cta-header {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.cta-title {
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-}
-
-.cta-description {
-  color: var(--color-on-surface-variant);
-  max-width: 640px;
-}
-
-.cta-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
   align-items: center;
+  text-align: center;
+  gap: 2rem;
 }
 
-@media (min-width: 768px) {
-  .cta-grid {
-    grid-template-columns: 1fr 1fr;
+/* Eyebrow */
+.cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-accent);
+  background: rgba(93, 92, 255, 0.1);
+  border: 1px solid rgba(93, 92, 255, 0.25);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 11px;
+}
+
+/* Title */
+.cta-block-title {
+  color: var(--color-on-surface);
+  max-width: 800px;
+}
+
+.cta-highlight {
+  color: var(--color-accent);
+  position: relative;
+}
+
+.cta-highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0.05em;
+  width: 100%;
+  height: 0.08em;
+  background: var(--color-accent);
+  opacity: 0.4;
+  border-radius: 2px;
+}
+
+/* Description */
+.cta-block-description {
+  color: var(--color-on-surface-variant);
+  max-width: 580px;
+}
+
+/* Actions row */
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cta-actions {
+    flex-direction: row;
+    gap: 2.5rem;
   }
 }
 
-.cta-button-wrapper {
+/* --- WhatsApp Button with Pulse --- */
+.cta-wa-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cta-wa-pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 0.5rem;
+  background: var(--color-accent);
+  opacity: 0;
+  animation: wa-pulse 2.5s ease-out infinite;
+}
+
+@keyframes wa-pulse {
+  0% { opacity: 0.5; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.12); }
+}
+
+.cta-wa-content {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-family: var(--font-label);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 1.25rem 2.5rem;
+  border-radius: 0.5rem;
+  transition: all var(--duration) var(--ease-out);
+  box-shadow: 0 0 30px rgba(93, 92, 255, 0.3),
+              0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cta-wa-button:hover .cta-wa-content {
+  background: #4b4aee;
+  box-shadow: 0 0 50px rgba(93, 92, 255, 0.5),
+              0 4px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* --- QR Inline (clickable thumbnail) --- */
+.cta-qr-inline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.cta-qr-inline:hover {
+  transform: scale(1.05);
+}
+
+.cta-qr-mini {
+  width: 80px;
+  height: 80px;
+  padding: 0.5rem;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+  transition: box-shadow var(--duration) var(--ease-out);
+}
+
+.cta-qr-inline:hover .cta-qr-mini {
+  box-shadow: 0 0 30px rgba(93, 92, 255, 0.25),
+              0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.cta-qr-mini img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cta-qr-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-on-surface-variant);
+  font-size: 10px;
+  opacity: 0.7;
+  transition: opacity var(--duration) var(--ease-out),
+              color var(--duration) var(--ease-out);
+}
+
+.cta-qr-inline:hover .cta-qr-hint {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+/* --- Trust Bar --- */
+.cta-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem 2.5rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cta-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-on-surface-variant);
+  font-family: var(--font-label);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.cta-trust-item .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--color-accent);
+}
+
+/* ---------- QR Code Modal ---------- */
+.qr-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s var(--ease-out),
+              visibility 0.35s var(--ease-out);
 }
 
-@media (min-width: 768px) {
-  .cta-button-wrapper {
-    justify-content: flex-start;
-  }
+.qr-modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
 }
 
-.cta-whatsapp-btn {
-  font-size: 14px;
-  padding: 1.5rem 2.5rem;
-  gap: 1rem;
-  white-space: nowrap;
-}
-
-.cta-whatsapp-btn .material-symbols-outlined {
-  font-size: 28px;
-}
-
-.cta-qr {
+.qr-modal-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  background: rgba(30, 30, 50, 0.7);
+  border: 1px solid rgba(93, 92, 255, 0.2);
+  border-radius: 1.25rem;
+  padding: 2.5rem 2.5rem 2rem;
+  max-width: 360px;
+  width: calc(100% - 3rem);
+  box-shadow: 0 0 60px rgba(93, 92, 255, 0.15),
+              0 25px 50px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.4s var(--ease-out);
 }
 
-@media (min-width: 768px) {
-  .cta-qr {
-    align-items: flex-end;
-  }
+.qr-modal-overlay.is-open .qr-modal-card {
+  transform: scale(1) translateY(0);
 }
 
-.cta-qr-label {
-  font-family: var(--font-label);
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.2em;
-  font-weight: 600;
-  text-transform: uppercase;
+.qr-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.5rem;
   color: var(--color-on-surface-variant);
+  transition: color var(--duration) var(--ease-out);
+  border-radius: 50%;
 }
 
-.cta-qr-frame {
-  padding: 1rem;
+.qr-modal-close:hover {
+  color: var(--color-on-surface);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.qr-modal-qr {
   background: #ffffff;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
-  transition: transform 0.5s var(--ease-out);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
 }
 
-.cta-qr-frame:hover {
-  transform: scale(1.05);
-}
-
-.cta-qr-frame img {
-  width: 160px;
-  height: 160px;
+.qr-modal-qr img {
+  width: 220px;
+  height: 220px;
   object-fit: contain;
+}
+
+.qr-modal-label {
+  color: var(--color-on-surface-variant);
+  text-align: center;
+  font-size: 11px;
+}
+
+.qr-modal-fallback {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.5rem;
 }
 
 /* ---------- Footer ---------- */

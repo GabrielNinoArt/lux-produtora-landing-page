@@ -181,44 +181,91 @@
     </section>
 
     <!-- ======================== WHATSAPP CTA ======================== -->
-    <section class="section-padding section-border container" id="contact">
-      <div class="cta-section">
-        <div class="cta-header">
-          <h2 class="font-headline text-on-surface cta-title">
-            VAMOS TIRAR SUA IDEIA DO PAPEL?
-          </h2>
-          <p class="font-body-lg cta-description">
-            Fale diretamente com nossos especialistas e comece sua produção agora.
-          </p>
-        </div>
+    <section class="cta-block" id="contact">
+      <!-- Background glow effects -->
+      <div class="cta-glow-orb cta-glow-orb--1"></div>
+      <div class="cta-glow-orb cta-glow-orb--2"></div>
 
-        <div class="cta-grid">
-          <!-- WhatsApp Button -->
-          <div class="cta-button-wrapper">
-            <a
-              class="btn-primary cta-whatsapp-btn"
-              href="https://wa.me/5511954258702"
-              target="_blank"
-              rel="noopener noreferrer"
-              id="whatsapp-btn"
-            >
-              <span class="material-symbols-outlined" style="font-size:28px;">chat</span>
+      <div class="cta-block-inner container">
+        <!-- Eyebrow label -->
+        <p class="cta-eyebrow font-label">
+          <span class="material-symbols-outlined" style="font-size:16px; vertical-align: middle;">bolt</span>
+          Resposta em até 2 horas
+        </p>
+
+        <!-- Main headline -->
+        <h2 class="font-display-xl cta-block-title">
+          VAMOS TIRAR SUA<br/>IDEIA DO <span class="cta-highlight">PAPEL</span>?
+        </h2>
+
+        <p class="font-body-lg cta-block-description">
+          Fale diretamente com nossos especialistas e comece sua produção agora. Sem burocracia, sem formulários — direto no WhatsApp.
+        </p>
+
+        <!-- Action row: button + QR side by side -->
+        <div class="cta-actions">
+          <!-- WhatsApp Button with pulse -->
+          <a
+            class="cta-wa-button"
+            href="https://wa.me/5511954258702"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="whatsapp-btn"
+          >
+            <span class="cta-wa-pulse"></span>
+            <span class="cta-wa-content">
+              <span class="material-symbols-outlined" style="font-size:26px;">chat</span>
               <span>Iniciar Conversa no WhatsApp</span>
-            </a>
-          </div>
+            </span>
+          </a>
 
-          <!-- QR Code -->
-          <div class="cta-qr">
-            <p class="cta-qr-label">Ou escaneie o QR Code</p>
-            <div class="cta-qr-frame">
+          <!-- QR Code (clickable to expand) -->
+          <div class="cta-qr-inline" id="qr-trigger" role="button" tabindex="0" aria-label="Expandir QR Code">
+            <div class="cta-qr-mini">
               <img alt="QR Code para WhatsApp da LUX MEDIA" src="qr-code (1).svg" />
             </div>
+            <span class="cta-qr-hint font-label">
+              <span class="material-symbols-outlined" style="font-size:14px; vertical-align: middle;">qr_code_2</span>
+              Escanear QR Code
+            </span>
+          </div>
+        </div>
+
+        <!-- Trust bar -->
+        <div class="cta-trust">
+          <div class="cta-trust-item">
+            <span class="material-symbols-outlined">verified</span>
+            <span>Orçamento gratuito</span>
+          </div>
+          <div class="cta-trust-item">
+            <span class="material-symbols-outlined">schedule</span>
+            <span>Entrega rápida</span>
+          </div>
+          <div class="cta-trust-item">
+            <span class="material-symbols-outlined">workspace_premium</span>
+            <span>Qualidade premium</span>
           </div>
         </div>
       </div>
     </section>
 
   </main>
+
+  <!-- ======================== QR CODE MODAL ======================== -->
+  <div class="qr-modal-overlay" id="qr-modal" aria-hidden="true" role="dialog" aria-label="QR Code ampliado">
+    <div class="qr-modal-card">
+      <button class="qr-modal-close" id="qr-modal-close" aria-label="Fechar QR Code">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="qr-modal-qr">
+        <img alt="QR Code para WhatsApp da LUX MEDIA" src="qr-code (1).svg" />
+      </div>
+      <p class="qr-modal-label font-label">Escaneie para falar conosco no WhatsApp</p>
+      <a class="btn-primary btn-primary--lg qr-modal-fallback" href="https://wa.me/5511954258702" target="_blank" rel="noopener noreferrer">
+        Ou toque aqui para abrir
+      </a>
+    </div>
+  </div>
 
   <!-- ======================== FOOTER ======================== -->
   <footer class="site-footer">
@@ -255,12 +302,6 @@
       link.addEventListener('click', closeMenu);
     });
 
-    // Close menu on Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
-        closeMenu();
-      }
-    });
 
     // --- Scroll Animations (Intersection Observer) ---
     const fadeElements = document.querySelectorAll('.fade-in, .fade-in-stagger');
@@ -297,6 +338,46 @@
       }
       lastScroll = currentScroll;
     }, { passive: true });
+
+    // --- QR Code Modal ---
+    const qrTrigger = document.getElementById('qr-trigger');
+    const qrModal = document.getElementById('qr-modal');
+    const qrModalClose = document.getElementById('qr-modal-close');
+
+    function openQrModal() {
+      qrModal.classList.add('is-open');
+      qrModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeQrModal() {
+      qrModal.classList.remove('is-open');
+      qrModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    qrTrigger.addEventListener('click', openQrModal);
+    qrTrigger.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openQrModal();
+      }
+    });
+
+    qrModalClose.addEventListener('click', closeQrModal);
+
+    // Close on backdrop click
+    qrModal.addEventListener('click', function(e) {
+      if (e.target === qrModal) closeQrModal();
+    });
+
+    // Close on Escape (also handles mobile menu)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        if (qrModal.classList.contains('is-open')) closeQrModal();
+        if (mobileMenu.classList.contains('is-open')) closeMenu();
+      }
+    });
   </script>
 
 </body>
