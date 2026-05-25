@@ -236,7 +236,7 @@ ul, ol {
 
 @media (min-width: 1200px) {
   .brand-logo {
-    height: 110px; /* Monitores grandes */
+    height: 95px; /* Monitores grandes */
   }
 }
 
