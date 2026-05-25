@@ -117,8 +117,6 @@ ul, ol {
   line-height: 1.05;
   letter-spacing: -0.02em;
   font-weight: 900;
-  word-wrap: break-word;
-  hyphens: auto;
 }
 
 .font-headline {
@@ -166,8 +164,8 @@ ul, ol {
 
 @media (min-width: 1200px) {
   .font-display-xl {
-    font-size: 120px;
-    line-height: 110px;
+    font-size: 100px;
+    line-height: 95px;
     letter-spacing: -0.04em;
   }
 
@@ -414,8 +412,16 @@ ul, ol {
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding-top: 100px;
+  padding-top: 120px;
   padding-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .hero { padding-top: 160px; }
+}
+
+@media (min-width: 1200px) {
+  .hero { padding-top: 200px; }
 }
 
 .hero-bg {
