@@ -505,9 +505,9 @@ ul, ol {
   font-size: 40px;
   line-height: 1;
   letter-spacing: 0.05em;
-  font-weight: 900;
+  font-weight: 400;
   text-transform: uppercase;
-  color: var(--color-on-surface);
+  color: var(--color-on-surface-variant);
   padding-right: 2rem;
   white-space: nowrap;
 }
