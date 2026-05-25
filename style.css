@@ -434,17 +434,21 @@ ul, ol {
 }
 
 .hero-liquid-orb--1 {
-  width: 60vw;
-  height: 60vw;
+  width: 150vw;
+  height: 150vw;
   background: radial-gradient(circle at center, #5D5CFF, #8b5cf6, transparent 70%);
   top: -20vw;
   left: -20vw;
   animation-delay: 0s;
 }
 
+@media (min-width: 768px) {
+  .hero-liquid-orb--1 { width: 60vw; height: 60vw; }
+}
+
 .hero-liquid-orb--2 {
-  width: 70vw;
-  height: 70vw;
+  width: 160vw;
+  height: 160vw;
   background: radial-gradient(circle at center, #8b5cf6, #3b0764, transparent 70%);
   bottom: -30vw;
   right: -20vw;
@@ -452,14 +456,22 @@ ul, ol {
   animation-delay: -5s;
 }
 
+@media (min-width: 768px) {
+  .hero-liquid-orb--2 { width: 70vw; height: 70vw; }
+}
+
 .hero-liquid-orb--3 {
-  width: 50vw;
-  height: 50vw;
+  width: 140vw;
+  height: 140vw;
   background: radial-gradient(circle at center, #2e1065, #5D5CFF, transparent 70%);
   top: 40%;
   left: 30%;
   animation-duration: 12s;
   animation-delay: -2s;
+}
+
+@media (min-width: 768px) {
+  .hero-liquid-orb--3 { width: 50vw; height: 50vw; }
 }
 
 .hero-bg-glass {
@@ -708,16 +720,52 @@ ul, ol {
   justify-content: center;
 }
 
-.bento-card:hover .bento-pain {
+.bento-card:hover .bento-pain,
+.bento-card:focus .bento-pain {
   opacity: 0;
   transform: translateY(-20px);
   pointer-events: none;
 }
 
-.bento-card:hover .bento-solution {
+.bento-card:hover .bento-solution,
+.bento-card:focus .bento-solution {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+
+.bento-interaction-cue {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse-cue 2s infinite;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.bento-interaction-cue .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--color-on-surface);
+}
+
+.bento-card:hover .bento-interaction-cue,
+.bento-card:focus .bento-interaction-cue,
+.bento-card:active .bento-interaction-cue {
+  opacity: 0;
+}
+
+@keyframes pulse-cue {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
 .bento-badge {
@@ -1187,6 +1235,12 @@ ul, ol {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-on-surface-variant);
+}
+
+.desktop-only { display: none; }
+
+@media (min-width: 768px) {
+  .desktop-only { display: block; }
 }
 
 /* ---------- Utility ---------- */
