@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&amp;display=swap');
+      .lux-text { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 130px; }
+      .produtora-text { font-family: 'Montserrat', sans-serif; font-weight: 400; font-size: 16px; letter-spacing: 16px; }
+    </style>
+  </defs>
+
+  <path d="M 140 70 L 390 175 L 140 280 Z" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" opacity="0.3"/>
+
+  <text x="250" y="225" text-anchor="middle" class="lux-text" fill="#FFFFFF">LUX</text>
+
+  <line x1="80" y1="285" x2="140" y2="285" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="258" y="290" text-anchor="middle" class="produtora-text" fill="#FFFFFF">PRODUTORA</text>
+  <line x1="360" y1="285" x2="420" y2="285" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
