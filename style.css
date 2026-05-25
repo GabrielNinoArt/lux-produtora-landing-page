@@ -576,7 +576,7 @@ ul, ol {
 
 .bento-bg--video { background-image: radial-gradient(circle at top left, #5D5CFF, #1e1e40, #0a0a2e); }
 .bento-bg--ai { background-image: radial-gradient(circle at bottom right, #a78bfa, #3b0764, #0a0a2e); }
-.bento-bg--production { background-image: radial-gradient(circle at center, #0f766e, #06b6d4, #0a0a2e); }
+.bento-bg--production { background-image: radial-gradient(circle at center, #4c1d95, #6d28d9, #0a0a2e); }
 .bento-bg--growth { background-image: radial-gradient(circle at top right, #c026d3, #7e22ce, #0a0a2e); }
 
 @keyframes bento-gradient-shift {
