@@ -223,9 +223,15 @@ ul, ol {
 }
 
 .brand-logo {
-  height: 40px;
+  height: 60px; /* Tamanho base (mobile) */
   width: auto;
   display: block;
+}
+
+@media (min-width: 768px) {
+  .brand-logo {
+    height: 80px; /* Tamanho desktop */
+  }
 }
 
 .brand-logo .lux-text {
@@ -1157,9 +1163,15 @@ ul, ol {
 }
 
 .footer-brand-logo {
-  height: 64px;
+  height: 80px; /* Tamanho base (mobile) */
   width: auto;
   display: block;
+}
+
+@media (min-width: 768px) {
+  .footer-brand-logo {
+    height: 120px; /* Tamanho desktop */
+  }
 }
 
 .footer-copyright {
