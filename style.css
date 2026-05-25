@@ -532,12 +532,6 @@ ul, ol {
   }
 }
 
-@media (min-width: 1024px) {
-  .bento-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 /* Bento Card Geometry */
 .bento-card {
   position: relative;
@@ -549,18 +543,6 @@ ul, ol {
   min-height: 320px;
   cursor: pointer;
   transform: translateZ(0); /* Hardware acceleration */
-}
-
-@media (min-width: 1024px) {
-  .bento-card--large {
-    grid-column: span 2;
-  }
-  .bento-card--medium {
-    grid-column: span 1;
-  }
-  .bento-card--wide {
-    grid-column: span 2;
-  }
 }
 
 /* Backgrounds & Liquid Glass */
@@ -582,7 +564,7 @@ ul, ol {
 .bento-bg--video { background-image: radial-gradient(circle at top left, #5D5CFF, #1e1e40, #0a0a2e); }
 .bento-bg--ai { background-image: radial-gradient(circle at bottom right, #a78bfa, #3b0764, #0a0a2e); }
 .bento-bg--web { background-image: radial-gradient(circle at center, #2e1065, #5D5CFF, #000); }
-.bento-bg--marketing { background-image: radial-gradient(circle at top right, #c026d3, #7e22ce, #0a0a2e); }
+.bento-bg--growth { background-image: radial-gradient(circle at top right, #c026d3, #7e22ce, #0a0a2e); }
 
 @keyframes bento-gradient-shift {
   0% { transform: translate(0, 0) scale(1); }
